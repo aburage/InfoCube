@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+html {
+    font-family: "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif;
+    font-size: 0.9em;
+}
+
+/*global navigation*/
+ul.navi-top,
+ul.navi-top a {
+    color: white;
+    background-color: #498DFF;
+}
+
+/*
+ul.navi-top .home {
+    color: white;
+    background-color: #422C24;
+}
+*/
+
+ul.navi-top a:hover {
+    color: white;
+    background-color: #A7C2E2;
+}
+
+ul.navi-top {
+    /*    position: fixed;*/
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    width: 100%;
+}
+
+ul.navi-top li {
+    width: 240px;
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+}
+
+ul.navi-top a {
+    line-height: 60px;
+    text-align: center;
+    padding-left: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.title{
+    font-size: 2rem;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.article {
+/*    background-color: #359;*/
+    background: linear-gradient(90deg, #359 0%, #359 18%, #F9F9F9 18%, #F9F9F9 100%);
+    display: flex;
+    width: 700px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px #999;
+}
+
+.image{
+    padding: 20px 40px 0px 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.text-content{
+    padding-left: 20px;
+}
+
+.add-button{
+    background-color: #498DE5;
+    color: #FFF;
+    font-size: 1.2rem;
+    width: 200px;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
