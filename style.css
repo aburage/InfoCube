@@ -9,7 +9,7 @@ html {
 ul.navi-top,
 ul.navi-top a {
     color: white;
-    background-color: #498DFF;
+    background-color: #359;
 }
 
 /*
@@ -30,7 +30,7 @@ ul.navi-top {
     top: 0;
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 16px;
     width: 100%;
 }
 
@@ -50,14 +50,14 @@ ul.navi-top a {
 }
 
 .title{
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding-left: 20px;
     text-align: center;
+    font-weight: 600;
 }
 
 .article {
-/*    background-color: #359;*/
-    background: linear-gradient(90deg, #359 0%, #359 18%, #F9F9F9 18%, #F9F9F9 100%);
+    background: linear-gradient(90deg, #498DE5 0%, #498DE5 18%, #F9F9F9 18%, #F9F9F9 100%);
     display: flex;
     width: 700px;
     margin: auto;
@@ -80,7 +80,7 @@ ul.navi-top a {
 }
 
 .add-button{
-    background-color: #498DE5;
+    background-color: #359;
     color: #FFF;
     font-size: 1.2rem;
     width: 200px;
@@ -91,3 +91,23 @@ ul.navi-top a {
     margin-right: auto;
     margin-top: 30px;
 }
+
+.event-form, .login-form{
+    padding-left: 100px;
+}
+
+.form-title{
+    font-size: 20px;
+    font-weight: 400;
+    background-color: #498DE5;
+    color: #FFF;
+    width: 200px;
+    padding-left: 10px;
+    padding: 2px 0px 2px 20px;
+    border-radius: 3px;
+}
+
+.submit-button{
+    margin-top: 30px;
+}
+
