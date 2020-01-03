@@ -51,7 +51,6 @@ ul.navi-top a {
 
 .title{
     font-size: 1.7rem;
-    padding-left: 20px;
     text-align: center;
     font-weight: 600;
 }
@@ -80,12 +79,7 @@ ul.navi-top a {
 }
 
 .add-button{
-    background-color: #359;
-    color: #FFF;
-    font-size: 1.2rem;
     width: 200px;
-    padding: 12px;
-    border-radius: 5px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -109,5 +103,15 @@ ul.navi-top a {
 
 .submit-button{
     margin-top: 30px;
+}
+
+.event-button{
+    background-color: #359;
+    color: #FFF;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
