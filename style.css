@@ -49,7 +49,7 @@ ul.navi-top a {
     display: block;
 }
 
-.title{
+.title {
     font-size: 1.7rem;
     text-align: center;
     font-weight: 600;
@@ -68,28 +68,29 @@ ul.navi-top a {
     box-shadow: 0 0 5px #999;
 }
 
-.image{
+.image {
     padding: 20px 40px 0px 10px;
     width: 60px;
     height: 60px;
 }
 
-.text-content{
+.text-content {
     padding-left: 20px;
 }
 
-.add-button{
+.add-button {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
 }
 
-.event-form, .login-form{
+.event-form,
+.login-form {
     padding-left: 100px;
 }
 
-.form-title{
+.form-title {
     font-size: 20px;
     font-weight: 400;
     background-color: #498DE5;
@@ -100,11 +101,11 @@ ul.navi-top a {
     border-radius: 3px;
 }
 
-.submit-button{
+.submit-button {
     margin-top: 30px;
 }
 
-.event-button{
+.event-button {
     background-color: #359;
     color: #FFF;
     font-size: 1.2em;
@@ -114,3 +115,16 @@ ul.navi-top a {
     text-decoration: none;
 }
 
+.filter-button {
+    background-color: #359;
+    color: #FFF;
+    font-size: 1.1em;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.filter {
+    margin-left: 80px;
+    margin-top: 40px;
+    
+}
