@@ -12,13 +12,20 @@
         <li><a href="./index.html" class="home">InfoCube</a></li>
         <li><a href="./cube-list.html">My Cube 一覧</a></li>
     </ul>
-    
+
     <p class="title">My Cube 一覧</p>
-    
+
     <div class="filter">
+        <select name="tag-select">
+            <option value="" hidden>タグを選択</option>
+            <option value="schedule">スケジュール</option>
+            <option value="data">データ</option>
+            <option value="feeling">フィーリング</option>
+        </select>
+        <input type="date" class="filter-form">
         <button href="new-cube.html" class="filter-button">項目を選択</button>
     </div>
-    
+
     <div class="article">
         <img src="./images/weather.png" alt="天気" class="image">
         <div class="text-content">
@@ -43,7 +50,7 @@
     <div class="add-button">
         <a href="new-cube.html" class="event-button">My Cube 追加</a>
     </div>
-    
+
 </body>
 
 </html>
