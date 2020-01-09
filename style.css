@@ -93,12 +93,13 @@ ul.navi-top a {
 .form-title {
     font-size: 20px;
     font-weight: 400;
-    background-color: #498DE5;
+    background-color: #359;
     color: #FFF;
     width: 200px;
     padding-left: 10px;
     padding: 2px 0px 2px 20px;
     border-radius: 3px;
+    margin: 50px 0px 25px 0px;
 }
 
 .submit-button {
