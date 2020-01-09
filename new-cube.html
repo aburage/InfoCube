@@ -12,38 +12,48 @@
         <li><a href="./index.html" class="home">InfoCube</a></li>
         <li><a href="./cube-list.html">My Cube 一覧</a></li>
     </ul>
-    
+
     <p class="title">My Cube 追加</p>
 
     <div class="event-form">
         <p class="form-title">Cubeの名前</p>
-        <input>
-        
+        <div class="form-contents">
+            <input  class="left">
+        </div>
+
         <p class="form-title">Cubeの種類</p>
-        <input type="radio">スケジュール
-        <!--日付と時間選択を追加-->
-        <input type="radio">データ
-        <input type="radio">フィーリング
-        
+        <div class="form-contents">
+            <input type="radio" class="left">スケジュール
+            <!--日付と時間選択を追加-->
+            <input type="radio">データ
+            <input type="radio">フィーリング
+        </div>
+
         <p class="form-title">始めの動き</p>
-        <input type="image" src="./images/icon_start_turn.png" width="100px">
-        <input type="image" src="./images/icon_start_rotate.png" width="100px">
+        <div class="form-contents">
+            <input type="image" src="./images/icon_start_turn.png" width="100px" class="left">
+            <input type="image" src="./images/icon_start_rotate.png" width="100px">
+        </div>
+
         <p class="form-title">中間の動き</p>
-        <input type="image" src="./images/icon_middle_straight.png" width="100px">
-        <input type="image" src="./images/icon_middle_swing.png" width="100px">
-        <input type="image" src="./images/icon_middle_slide.png" width="100px">
-        <input type="image" src="./images/icon_middle_round.png" width="100px">
-        <input type="image" src="./images/icon_middle_repeat.png" width="100px">
-        
+        <div class="form-contents">
+            <input type="image" src="./images/icon_middle_straight.png" width="100px"  class="left">
+            <input type="image" src="./images/icon_middle_repeat.png" width="100px">
+            <input type="image" src="./images/icon_middle_swing.png" width="100px">
+            <input type="image" src="./images/icon_middle_slide.png" width="100px">
+            <input type="image" src="./images/icon_middle_round.png" width="100px">
+        </div>
+
         <p class="form-title">終わりの動き</p>
-        <input type="image" src="./images/icon_end_turn.png" width="100px">
-        <input type="image" src="./images/icon_end_rotate.png" width="100px">
-        
+        <div class="form-contents">
+            <input type="image" src="./images/icon_end_turn.png" width="100px" class="left">
+            <input type="image" src="./images/icon_end_rotate.png" width="100px">
+        </div>
+
         <br>
         <input type="submit" class="submit-button">
     </div>
-    
-    
+
 </body>
 
 </html>
