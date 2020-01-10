@@ -6,18 +6,10 @@ html {
 }
 
 /*global navigation*/
-ul.navi-top,
-ul.navi-top a {
+ul.navi-top,ul.navi-top a {
     color: white;
     background-color: #359;
 }
-
-/*
-ul.navi-top .home {
-    color: white;
-    background-color: #422C24;
-}
-*/
 
 ul.navi-top a:hover {
     color: white;
@@ -25,7 +17,6 @@ ul.navi-top a:hover {
 }
 
 ul.navi-top {
-    /*    position: fixed;*/
     left: 0;
     top: 0;
     margin: 0;
@@ -49,42 +40,74 @@ ul.navi-top a {
     display: block;
 }
 
-.title {
+/*page title*/
+.page-title {
     font-size: 1.7rem;
     text-align: center;
     font-weight: 600;
 }
 
-.article {
+/*cube card*/
+.card {
     background: linear-gradient(90deg, #498DE5 0%, #498DE5 18%, #F9F9F9 18%, #F9F9F9 100%);
     display: flex;
     width: 700px;
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
     box-sizing: border-box;
     box-shadow: 0 0 5px #999;
 }
 
-.image {
+.card-image {
     padding: 20px 40px 0px 10px;
     width: 60px;
     height: 60px;
 }
 
-.text-content {
+.card-content {
     padding-left: 20px;
 }
 
-.add-button {
+/*add event button*/
+.add-event-section {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
 }
 
+.add-event-button {
+    background-color: #359;
+    color: #FFF;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/*cube filter*/
+.filter {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+.filter-form{
+    padding: 2px 0px 2px 0;
+}
+
+.filter-button {
+    background-color: #359;
+    color: #FFF;
+    font-size: 1.1em;
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+/*create cube form*/
 .form-title {
     font-size: 20px;
     font-weight: 400;
@@ -98,18 +121,9 @@ ul.navi-top a {
     width: 680px;
 }
 
-.form-contents{
+.cubeform-contents{
     background-color: #EAEFF7;
-    padding-top: 50px;
-    padding-bottom: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-}
-
-.login-contents{
-    background-color: #EAEFF7;
-    padding: 20px 0px 20px 5px;
+    padding: 20px 0px 40px 0px;
     margin-left: auto;
     margin-right: auto;
     width: 700px;
@@ -119,87 +133,33 @@ ul.navi-top a {
     margin-left: 20px;
 }
 
-.submit-button {
-    margin-top: 30px;
-}
-
-.event-button {
-    background-color: #359;
-    color: #FFF;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.filter-button {
-    background-color: #359;
-    color: #FFF;
-    font-size: 1.1em;
-    padding: 5px 20px;
-    border-radius: 5px;
-}
-
-.filter {
+.event-submit-section{
+    background-color: #EAEFF7;
+    padding: 0px 0px 0px 0px;
     margin-left: auto;
     margin-right: auto;
     width: 700px;
 }
 
-.filter-form{
-    padding: 2px 0px 2px 0;
+.event-submit-button{
 }
 
-.cp_ipselect {
-	overflow: hidden;
-	width: 90%;
-	margin: 2em auto;
-	text-align: center;
+/*log-in form*/
+.login-contents{
+    background-color: #EAEFF7;
+    padding: 20px 0px 20px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
 }
 
-.cp_ipselect select {
-	width: 100%;
-	padding-right: 1em;
-	cursor: pointer;
-	text-indent: 0.01px;
-	text-overflow: ellipsis;
-	border: none;
-	outline: none;
-	background: transparent;
-	background-image: none;
-	box-shadow: none;
-	-webkit-appearance: none;
-	appearance: none;
+.login-submit-section{
+    background-color: #EAEFF7;
+    padding: 0px 0px 0px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
 }
 
-.cp_ipselect select::-ms-expand {
-    display: none;
+.login-submit-button{  
 }
-
-.cp_ipselect.cp_sl01 {
-	position: relative;
-	border: 1px solid #bbbbbb;
-	border-radius: 2px;
-	background: #ffffff;
-}
-
-.cp_ipselect.cp_sl01::before {
-	position: absolute;
-	top: 0.8em;
-	right: 0.9em;
-	width: 0;
-	height: 0;
-	padding: 0;
-	content: '';
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 6px solid #666666;
-	pointer-events: none;
-}
-
-.cp_ipselect.cp_sl01 select {
-	padding: 8px 38px 8px 8px;
-	color: #666666;
-}
-
