@@ -13,6 +13,8 @@
   "dependencies": {
     "@toio/scanner": "^1.0.0"
   },
-  "keywords": [ "toio" ],
+  "keywords": [
+    "toio"
+  ],
   "author": "aburage"
 }
