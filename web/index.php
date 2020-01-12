@@ -14,9 +14,19 @@
         <li><a href="./cube-list.php">My Cube 一覧</a></li>
         <li><a href="./login_form.php">ログイン</a></li>
     </ul>
-    
+
     <p class="page-title">HOME</p>
+
+    <div class="display-if-disconnected">
+        <button id="connect">connect to cube</button>
+    </div>
+
+    <div class="display-if-connecting center">
+        connecting ...
+    </div>
     
+    <div class="display-if-connected">
+
     <?php
     function h($str){
         return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
@@ -47,7 +57,7 @@
             echo "</div></div>";
         }
     ?>
-    
+
     <div class="card">
         <img src="./images/weather.png" alt="天気" class="card-image">
         <div class="card-content">
@@ -60,7 +70,8 @@
     <div class="add-event-section">
         <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
     </div>
-    
+    </div>
+
 </body>
 
 </html>

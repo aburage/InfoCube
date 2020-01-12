@@ -163,3 +163,28 @@ ul.navi-top a {
 
 .login-submit-button{  
 }
+
+
+.display-if-disconnected {
+    display: none;
+}
+
+.display-if-connecting {
+    display: none;
+}
+
+.display-if-connected {
+    display: none;
+}
+
+.cube-disconnected .display-if-disconnected {
+    display: block;
+}
+
+.cube-connecting .display-if-connecting {
+    display: block;
+}
+
+.cube-connected .display-if-connected {
+    display: block;
+}
