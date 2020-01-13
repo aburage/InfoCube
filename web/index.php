@@ -74,7 +74,8 @@
     </div>
     </div>
     
-    <script src="./toio/dist/main.js" type="module"></script>
+    <script src="./toio/dist/main.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
