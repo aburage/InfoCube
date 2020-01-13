@@ -10,12 +10,9 @@ document.getElementById('connect').addEventListener('click', async () => {
   document.body.className = 'cube-connected';
 });
 
-let elements = document.getElementsByClassName("straight");
-
-for(let i=0, l=elements.length; l>i; i++) {
-    let element = elements[i] ;
-    element.addEventListener('click', async () => cube.move(30, 30, 0), false);
-}
+[...document.getElementsByClassName('straight')].forEach(element => {
+  element.addEventListener('click', async () => cube.move(30, 30, 100))
+})
 
 //document.getElementsByClassName('straight').addEventListener('touchstart', async () => cube.move(30, 30, 0));
 //document.getElementsByClassName('repeat').addEventListener('touchstart', async () => cube.move(30, 30, 0));

@@ -65,7 +65,7 @@
         <div class="card-content">
             <h2>My Cube 1</h2>
             <p>現在の天気（東京）</p>
-            <button id="straight">動きを確認</button>
+            <button class="straight">動きを確認</button>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
     </div>
     </div>
     
-    <script src="./toio/dist/main.js"></script>
+    <script src="./toio/dist/main.js" type="module"></script>
 </body>
 
 </html>
