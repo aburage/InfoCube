@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>InfoCube</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./toio/src/main.js"></script>
 </head>
 
 <body>
@@ -21,11 +20,14 @@
         <button id="connect">connect to cube</button>
     </div>
 
+<!--
     <div class="display-if-connecting center">
         connecting ...
     </div>
+-->
     
     <div class="display-if-connected">
+
 
     <?php
     function h($str){
@@ -53,7 +55,7 @@
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
             echo "<p>". h($row['date']). "</p>";
-            echo '<button class="confirm-button straight">動きを確認</button>';
+            echo '<button class="straight">動きを確認</button>';
             echo "</div></div>";
         }
     ?>
@@ -63,7 +65,7 @@
         <div class="card-content">
             <h2>My Cube 1</h2>
             <p>現在の天気（東京）</p>
-            <button class="confirm-button straight">動きを確認</button>
+            <button id="straight">動きを確認</button>
         </div>
     </div>
 
@@ -71,7 +73,8 @@
         <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
     </div>
     </div>
-
+    
+    <script src="./toio/dist/main.js"></script>
 </body>
 
 </html>
