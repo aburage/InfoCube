@@ -50,6 +50,12 @@
             echo "<div class='card'>";
             
             if (strcmp(h($row['tag']), 'data') == 0){
+                 $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
+                 $json = file_get_contents($base_url, true);
+                 $json = mb_convert_encoding($json, 'UTF-8');
+                 // 連想配列の形式でjsonへ変換
+                 $obj = json_decode($json, true);
+                 $weather = $obj['forecasts'][$data_date]['image']['title']; 
                 echo "<img src='./images/data.png' class='card-image'>";
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
                 echo "<img src='./images/schedule.png' class='card-image'>";

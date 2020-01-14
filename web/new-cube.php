@@ -15,49 +15,45 @@
 
     <p class="page-title">My Cube 追加</p>
 
-    <p class="form-title">Cubeの名前</p>
-    <div class="cubeform-contents">
-        <input class="left">
-    </div>
-
     <p class="form-title">Cubeの種類</p>
+<!--
+    <div class="cubetype-contents">
+        <a href="new-schedule.php"><img src="./images/schedule.png" alt="スケジュール" class="cubetype-card"></a>
+        <a href="new-data.php"><img src="./images/data.png" alt="データ" class="cubetype-card"></a>
+        <a href="new-feeling.php"><img src="./images/feeling.png" alt="フィーリング" class="cubetype-card"></a>
+    </div>
     <div class="cubeform-contents">
-        <input type="radio" class="left">スケジュール
-        <!--日付と時間選択を追加-->
-        <input type="radio">データ
-        <input type="radio">フィーリング
+        <span class="cubetype-sentence">スケジュール</span>
+        <span class="cubetype-sentence">データ</span>
+        <span class="cubetype-sentence">フィーリング</span>
     </div>
+-->
 
-    <p class="form-title">始めの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_start_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_start_rotate.png" width="100px">
+    <div class="card">
+        <img src="./images/schedule.png" alt="スケジュール" class="form-card-image">
+        <div class="form-card-content">
+            <h3>スケジュール</h3>
+            <button onclick="location.href='./new-schedule.php'" class="form-card-button">選択</button>
+        </div>
     </div>
-
-    <p class="form-title">中間の動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_middle_straight.png" width="100px" class="left">
-        <input type="image" src="./images/icon_middle_repeat.png" width="100px">
-        <input type="image" src="./images/icon_middle_round.png" width="100px">
-        <input type="image" src="./images/icon_middle_slide.png" width="100px">
-        <input type="image" src="./images/icon_middle_swing.png" width="100px">
+    <div class="card">
+        <a class="link-div" href="new-data.php"></a>
+        <img src="./images/data.png" alt="データ" class="form-card-image">
+        <div class="form-card-content">
+            <h3>データ</h3>
+            <button onclick="location.href='./new-data.php'">選択</button>
+        </div>
+        
     </div>
-
-    <p class="form-title">終わりの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_end_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_end_rotate.png" width="100px">
+    <div class="card">
+        <a class="link-div" href="new-feeling.php"></a>
+        <img src="./images/feeling.png" alt="フィーリング" class="form-card-image">
+        <div class="form-card-content">
+            <h3>フィーリング</h3>
+            <button onclick="location.href='./new-feeling.php'">選択</button>
+        </div>
+        
     </div>
-
-    <br>
-    <div class="event-submit-section">
-        <input type="submit" class="event-submit-button">
-    </div>
-    
-    <footer>
-        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
-    </footer>
-
 </body>
 
 </html>

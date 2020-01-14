@@ -146,7 +146,32 @@ ul.navi-top a {
     width: 700px;
 }
 
-.event-submit-button {}
+.event-submit-button {
+    
+}
+
+.cubetype-contents{
+    background-color: #498DE5;
+    padding: 20px 0px 40px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+.form-card-image {
+    padding: 0px 40px 0px 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.form-card-content {
+    padding-left: 20px;
+}
+
+.form-card-button{
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*log-in form*/
 .login-contents {
