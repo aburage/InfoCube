@@ -62,7 +62,7 @@ ul.navi-top a {
 }
 
 .card-image {
-    padding: 20px 40px 0px 10px;
+    padding: 30px 40px 0px 10px;
     width: 60px;
     height: 60px;
 }
@@ -71,15 +71,15 @@ ul.navi-top a {
     padding-left: 20px;
 }
 
+.move-image{
+    padding: 0px 0px 0px 10px;
+    width: 60px;
+    height: 60px;
+}
+
 /*add event button*/
 .add-event-section {
     text-align: center;
-/*
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
-*/
     margin: 50px auto 100px auto;
 }
 

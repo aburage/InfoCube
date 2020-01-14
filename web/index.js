@@ -8,17 +8,42 @@ document.getElementById('connect').addEventListener('click', async () => {
 });
 
 [...document.getElementsByClassName('straight')].forEach(element => {
-  element.addEventListener('click', async () => cube.move(30, 30, 100))
-})
+  element.addEventListener('click', async () => {
+      await cube.move(30, 30, 2000);
+  })
+});
 
-//document.getElementsByClassName('straight').addEventListener('touchstart', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('repeat').addEventListener('touchstart', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('round').addEventListener('touchstart', async () => cube.move(30, 0, 0));
-//document.getElementsByClassName('slide').addEventListener('touchstart', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('swing').addEventListener('touchstart', async () => cube.move(30, 30, 0));
+[...document.getElementsByClassName('repeat')].forEach(element => {
+  element.addEventListener('click', async () => {
+      await cube.move(30, 30, 500);
+      await cube.move(0, 0, 200);
+      await cube.move(30, 30, 500);
+      await cube.move(0, 0, 200);
+      await cube.move(30, 30, 500);
+      await cube.move(0, 0, 200);
+  })
+});
 
-//document.getElementsByClassName('straight').addEventListener('mousedown', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('repeat').addEventListener('mousedown', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('round').addEventListener('mousedown', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('slide').addEventListener('mousedown', async () => cube.move(30, 30, 0));
-//document.getElementsByClassName('swing').addEventListener('mousedown', async () => cube.move(30, 30, 0));
+[...document.getElementsByClassName('round')].forEach(element => {
+  element.addEventListener('click', async () => {
+      await cube.move(20, 40, 2000);
+  })
+});
+
+[...document.getElementsByClassName('slide')].forEach(element => {
+  element.addEventListener('click', async () => {
+      await cube.move(30, 30, 500);
+      await cube.move(-30, -30, 500);
+      await cube.move(30, 30, 500);
+      await cube.move(-30, -30, 500);
+  })
+});
+
+[...document.getElementsByClassName('swing')].forEach(element => {
+  element.addEventListener('click', async () => {
+      await cube.move(0, 30, 500);
+      await cube.move(0, -30, 500);
+      await cube.move(0, 30, 500);
+      await cube.move(0, -30, 500);
+  })
+});

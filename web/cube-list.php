@@ -54,42 +54,58 @@
 //    }
     
         for($i = 0; $row=$result->fetch(); ++$i ){
+            
             echo "<div class='card'>";
             if (strcmp(h($row['tag']), 'data') == 0){
-                echo "<img src='./images/weather.png' class='card-image'>";
+                echo "<img src='./images/data.png' class='card-image'>";
+            }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                echo "<img src='./images/schedule.png' class='card-image'>";
             }else{
-                echo "<img src='./images/notification.png' class='card-image'>";
+                echo "<img src='./images/feeling.png' class='card-image'>";
             }
+            
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
             if(h($row['start_movement']) == 1){
-                echo "<img src='./images/icon_start_turn.png' class='card-image'>";
+                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
             }else if(h($row['start_movement']) == 2){
-                echo "<img src='./images/icon_start_rotate.png' class='card-image'>";
+                echo "<img src='./images/icon_start_rotate.png' class='move-image'>";
             }else{
-                echo "<img src='./images/icon_start_turn.png' class='card-image'>";
+                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
             }
             
             if(h($row['middle_movement']) == 1){
-                echo "<img src='./images/icon_middle_repeat.png' class='card-image'>";
+                echo "<img src='./images/icon_middle_repeat.png' class='move-image'>";
             }else if(h($row['middle_movement']) == 2){
-                echo "<img src='./images/icon_middle_round.png' class='card-image'>";
+                echo "<img src='./images/icon_middle_round.png' class='move-image'>";
             }else if(h($row['middle_movement']) == 3){
-                echo "<img src='./images/icon_middle_slide.png' class='card-image'>";
+                echo "<img src='./images/icon_middle_slide.png' class='move-image'>";
             }else if(h($row['middle_movement']) == 4){
-                echo "<img src='./images/icon_middle_straight.png' class='card-image'>";
+                echo "<img src='./images/icon_middle_straight.png' class='move-image'>";
             }else{
-                echo "<img src='./images/icon_middle_swing.png' class='card-image'>";
+                echo "<img src='./images/icon_middle_swing.png' class='move-image'>";
             }
             
             if(h($row['middle_movement']) == 1){
-                echo "<img src='./images/icon_end_turn.png' class='card-image'>";
+                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
             }else if(h($row['middle_movement']) == 2){
-                echo "<img src='./images/icon_end_rotate.png' class='card-image'>";
+                echo "<img src='./images/icon_end_rotate.png' class='move-image'>";
             }else{
-                echo "<img src='./images/icon_end_turn.png' class='card-image'>";
+                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
             }
-            echo "<p>". h($row['date']). "</p>";
+            if (strcmp(h($row['tag']), 'data') == 0){
+                if (strcmp(h($row['data_date']), '0') == 0){
+                    echo "<p>今日</p>";
+                }else if(strcmp(h($row['data_date']), '1') == 0){
+                    echo "<p>明日</p>";
+                }else{
+                    echo "<p>明後日</p>";
+                }
+            }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                echo "<p>". h($row['schedule_date']). "</p>";
+            }else{
+                echo "<p>". h($row['feeling_destination']). " さんから</p>";
+            }
             echo "</div></div>";
         }
     ?>

@@ -20,16 +20,15 @@
         <button id="connect">connect to cube</button>
     </div>
 
-<!--
+    <!--
     <div class="display-if-connecting center">
         connecting ...
     </div>
 -->
-    
+
     <div class="display-if-connected">
 
-
-    <?php
+        <?php
     function h($str){
         return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
     }
@@ -40,13 +39,16 @@
     if(isset($_GET['start_movement'])) $start_movement=$_GET['start_movement']; 
     if(isset($_GET['middle_movement'])) $middle_movement=$_GET['middle_movement']; 
     if(isset($_GET['end_movement'])) $end_movement=$_GET['end_movement'];
-    if(isset($_GET['date'])) $date=$_GET['date']; 
-    if(isset($_GET['time'])) $type=$_GET['time']; 
+    if(isset($_GET['schedule_date'])) $schedule_date=$_GET['schedule_date']; 
+    if(isset($_GET['data_location'])) $data_location=$_GET['data_location']; 
+    if(isset($_GET['data_date'])) $data_date=$_GET['data_date']; 
+    if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination']; 
 
     $db = new PDO("sqlite:infocube.sqlite");
     $result=$db->query("select * from cube");
         for($i = 0; $row=$result->fetch(); ++$i ){
             echo "<div class='card'>";
+            
             if (strcmp(h($row['tag']), 'data') == 0){
                 echo "<img src='./images/data.png' class='card-image'>";
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
@@ -54,31 +56,57 @@
             }else{
                 echo "<img src='./images/feeling.png' class='card-image'>";
             }
+            
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
-            echo "<p>". h($row['date']). "</p>";
-            echo '<button class="straight">動きを確認</button>';
+            
+            if (strcmp(h($row['tag']), 'data') == 0){
+                if (strcmp(h($row['data_date']), '0') == 0){
+                    echo "<p>今日</p>";
+                }else if(strcmp(h($row['data_date']), '1') == 0){
+                    echo "<p>明日</p>";
+                }else{
+                    echo "<p>明後日</p>";
+                }
+            }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                echo "<p>". h($row['schedule_date']). "</p>";
+            }else{
+                echo "<p>". h($row['feeling_destination']). " さんから</p>";
+            }
+            
+            if (strcmp(h($row['middle_movement']), '1') == 0){
+                echo '<button class="straight">動きを確認</button>';
+            }else if (strcmp(h($row['middle_movement']), '2') == 0){
+                echo '<button class="repeat">動きを確認</button>';
+            }else if (strcmp(h($row['middle_movement']), '3') == 0){
+                echo '<button class="round">動きを確認</button>';
+            }else if (strcmp(h($row['middle_movement']), '4') == 0){
+                echo '<button class="slide">動きを確認</button>';
+            }else if (strcmp(h($row['middle_movement']), '5') == 0){
+                echo '<button class="swing">動きを確認</button>';
+            }
+            
             echo "</div></div>";
         }
     ?>
-    
-    <div class="card">
-        <img src="./images/data.png" alt="天気" class="card-image">
-        <div class="card-content">
-            <h2>My Cube 1</h2>
-            <p>現在の天気（東京）</p>
-            <button class="straight">動きを確認</button>
+
+        <div class="card">
+            <img src="./images/data.png" alt="天気" class="card-image">
+            <div class="card-content">
+                <h2>My Cube 1</h2>
+                <p>現在の天気（東京）</p>
+                <button class="straight">動きを確認</button>
+            </div>
+        </div>
+
+        <div class="add-event-section">
+            <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
         </div>
     </div>
 
-    <div class="add-event-section">
-        <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
-    </div>
-    </div>
-    
     <script src="./toio/dist/main.js"></script>
     <script src="./index.js"></script>
-    
+
     <footer>
         <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
     </footer>
