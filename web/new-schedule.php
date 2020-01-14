@@ -15,42 +15,54 @@
 
     <p class="page-title">My Cube 追加：スケジュール</p>
 
-    <p class="form-title">Cubeの名前</p>
-    <div class="cubeform-contents">
-        <input class="left">
-    </div>
+    <?php
 
+        if(isset($_GET['cube_name'])) $cube_name=$_GET['cube_name']; 
+        if(isset($_GET['move'])) $move=$_GET['move']; 
+        if(isset($_GET['day'])) $day=$_GET['day']; 
 
-    <p class="form-title">始めの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_start_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_start_rotate.png" width="100px">
-    </div>
+        $db = new PDO("sqlite:infocube.sqlite");
+        if(isset($cube_name)){
+            $db->query("insert into cube values(1, null, '$cube_name', 'schedule', 0, '$move', 0, '$day', 0, 10, 0);");
+            print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
+        }
+    ?>
 
-    <p class="form-title">中間の動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_middle_straight.png" width="100px" class="left">
-        <input type="image" src="./images/icon_middle_repeat.png" width="100px">
-        <input type="image" src="./images/icon_middle_round.png" width="100px">
-        <input type="image" src="./images/icon_middle_slide.png" width="100px">
-        <input type="image" src="./images/icon_middle_swing.png" width="100px">
-    </div>
+    <form action=new-schedule.php method="get">
+        <p class="form-title">Cubeの名前</p>
+        <div class="cubeform-contents">
+            <input class="left" name="cube_name">
+        </div>
 
-    <p class="form-title">終わりの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_end_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_end_rotate.png" width="100px">
-    </div>
+        <p class="form-title">Cubeの動き</p>
+        <div class="cubeform-contents">
+            <img src="./images/icon_middle_straight.png" width="100px" class="left">
+            <img type="image" src="./images/icon_middle_repeat.png" width="100px">
+            <img type="image" src="./images/icon_middle_round.png" width="100px">
+            <img type="image" src="./images/icon_middle_slide.png" width="100px">
+            <img type="image" src="./images/icon_middle_swing.png" width="100px">
+            <br>
+            <input type="radio" name="move" value="1" class="left">STRAIGHT
+            <input type="radio" name="move" value="2">REPEAT
+            <input type="radio" name="move" value="3">ROUND
+            <input type="radio" name="move" value="4">SLIDE
+            <input type="radio" name="move" value="5">SWING
+        </div>
 
-    <p class="form-title">日付</p>
-    <div class="cubeform-contents">
-        <input type="date" class="left">
-    </div>
+        <p class="form-title">日付</p>
+        <div class="cubeform-contents">
+            <input type="date" class="left" name="day">
+        </div>
+
+        <div class="event-submit-section">
+            <input type="submit" class="event-submit-button left">
+        </div>
+    </form>
 
     <br>
-    <div class="event-submit-section">
-        <input type="submit" class="event-submit-button left">
-    </div>
+
+
+
 
     <footer>
         <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>

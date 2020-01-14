@@ -20,13 +20,7 @@
         <input class="left">
     </div>
 
-    <p class="form-title">始めの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_start_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_start_rotate.png" width="100px">
-    </div>
-
-    <p class="form-title">中間の動き</p>
+    <p class="form-title">Cubeの動き</p>
     <div class="cubeform-contents">
         <input type="image" src="./images/icon_middle_straight.png" width="100px" class="left">
         <input type="image" src="./images/icon_middle_repeat.png" width="100px">
@@ -35,12 +29,6 @@
         <input type="image" src="./images/icon_middle_swing.png" width="100px">
     </div>
 
-    <p class="form-title">終わりの動き</p>
-    <div class="cubeform-contents">
-        <input type="image" src="./images/icon_end_turn.png" width="100px" class="left">
-        <input type="image" src="./images/icon_end_rotate.png" width="100px">
-    </div>
-    
     <p class="form-title">送る相手</p>
     <div class="cubeform-contents">
         <input class="left">

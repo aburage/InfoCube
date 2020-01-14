@@ -66,13 +66,13 @@
             
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
-            if(h($row['start_movement']) == 1){
-                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
-            }else if(h($row['start_movement']) == 2){
-                echo "<img src='./images/icon_start_rotate.png' class='move-image'>";
-            }else{
-                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
-            }
+//            if(h($row['start_movement']) == 1){
+//                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
+//            }else if(h($row['start_movement']) == 2){
+//                echo "<img src='./images/icon_start_rotate.png' class='move-image'>";
+//            }else{
+//                echo "<img src='./images/icon_start_turn.png' class='move-image'>";
+//            }
             
             if(h($row['middle_movement']) == 1){
                 echo "<img src='./images/icon_middle_repeat.png' class='move-image'>";
@@ -85,14 +85,14 @@
             }else{
                 echo "<img src='./images/icon_middle_swing.png' class='move-image'>";
             }
-            
-            if(h($row['middle_movement']) == 1){
-                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 2){
-                echo "<img src='./images/icon_end_rotate.png' class='move-image'>";
-            }else{
-                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
-            }
+//            
+//            if(h($row['middle_movement']) == 1){
+//                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
+//            }else if(h($row['middle_movement']) == 2){
+//                echo "<img src='./images/icon_end_rotate.png' class='move-image'>";
+//            }else{
+//                echo "<img src='./images/icon_end_turn.png' class='move-image'>";
+//            }
             if (strcmp(h($row['tag']), 'data') == 0){
                 if (strcmp(h($row['data_date']), '0') == 0){
                     echo "<p>今日</p>";

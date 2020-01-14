@@ -16,18 +16,6 @@
     <p class="page-title">My Cube 追加</p>
 
     <p class="form-title">Cubeの種類</p>
-<!--
-    <div class="cubetype-contents">
-        <a href="new-schedule.php"><img src="./images/schedule.png" alt="スケジュール" class="cubetype-card"></a>
-        <a href="new-data.php"><img src="./images/data.png" alt="データ" class="cubetype-card"></a>
-        <a href="new-feeling.php"><img src="./images/feeling.png" alt="フィーリング" class="cubetype-card"></a>
-    </div>
-    <div class="cubeform-contents">
-        <span class="cubetype-sentence">スケジュール</span>
-        <span class="cubetype-sentence">データ</span>
-        <span class="cubetype-sentence">フィーリング</span>
-    </div>
--->
 
     <div class="card">
         <img src="./images/schedule.png" alt="スケジュール" class="form-card-image">
