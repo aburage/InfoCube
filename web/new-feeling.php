@@ -35,11 +35,11 @@
 
         <p class="form-title">Cubeの動き</p>
         <div class="cubeform-contents">
-            <img src="./images/icon_middle_straight.png" width="100px" class="left">
-            <img type="image" src="./images/icon_middle_repeat.png" width="100px">
-            <img type="image" src="./images/icon_middle_round.png" width="100px">
-            <img type="image" src="./images/icon_middle_slide.png" width="100px">
-            <img type="image" src="./images/icon_middle_swing.png" width="100px">
+            <img src="./images/icon_straight.png" width="100px" class="left">
+            <img src="./images/icon_repeat.png" width="100px">
+            <img src="./images/icon_round.png" width="100px">
+            <img src="./images/icon_slide.png" width="100px">
+            <img src="./images/icon_swing.png" width="100px">
             <br>
             <input type="radio" name="move" value="1" class="left">STRAIGHT
             <input type="radio" name="move" value="2">REPEAT
