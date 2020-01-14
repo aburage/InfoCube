@@ -53,6 +53,10 @@
     <div class="event-submit-section">
         <input type="submit" class="event-submit-button">
     </div>
+    
+    <footer>
+        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
+    </footer>
 
 </body>
 

@@ -76,6 +76,10 @@
     
     <script src="./toio/dist/main.js"></script>
     <script src="./index.js"></script>
+    
+    <footer>
+        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
+    </footer>
 </body>
 
 </html>

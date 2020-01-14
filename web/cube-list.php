@@ -96,6 +96,11 @@
     <div class="add-event-section">
         <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
     </div>
+    
+    <footer>
+        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
+    </footer>
+    
 </body>
 
 </html>
