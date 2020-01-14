@@ -40,7 +40,6 @@
             <h3>フィーリング</h3>
             <button onclick="location.href='./new-feeling.php'">選択</button>
         </div>
-        
     </div>
 </body>
 

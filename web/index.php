@@ -16,21 +16,21 @@
 
     <p class="page-title">HOME</p>
 
-    <div class="display-if-disconnected">
-        <button id="connect">connect to cube</button>
+    <div class="display-if-disconnected connect-btn">
+        <button class="btn" id="connect">connect to cube</button>
     </div>
 
-    <!--
+
     <div class="display-if-connecting center">
         connecting ...
     </div>
--->
+
 
     <div class="display-if-connected">
 
         <?php
-    function h($str){
-        return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
+        function h($str){
+            return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
     }
 
     if(isset($_GET['cube_number'])) $cube_number=$_GET['cube_number']; 
@@ -44,18 +44,19 @@
     if(isset($_GET['data_date'])) $data_date=$_GET['data_date']; 
     if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination']; 
 
-    $db = new PDO("sqlite:infocube.sqlite");
+    $db = new PDO("sqlite:SQL/infocube.sqlite");
     $result=$db->query("select * from cube");
         for($i = 0; $row=$result->fetch(); ++$i ){
             echo "<div class='card'>";
             
             if (strcmp(h($row['tag']), 'data') == 0){
-                 $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
-                 $json = file_get_contents($base_url, true);
-                 $json = mb_convert_encoding($json, 'UTF-8');
-                 // 連想配列の形式でjsonへ変換
-                 $obj = json_decode($json, true);
-                 $weather = $obj['forecasts'][$data_date]['image']['title']; 
+                $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
+                $json = file_get_contents($base_url, true);
+                $json = mb_convert_encoding($json, 'UTF-8');
+                // 連想配列の形式でjsonへ変換
+                $obj = json_decode($json, true);
+                $weather = $obj['forecasts'][$data_date]['image']['title']; 
+                
                 echo "<img src='./images/data.png' class='card-image'>";
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
                 echo "<img src='./images/schedule.png' class='card-image'>";
@@ -114,7 +115,7 @@
     <script src="./index.js"></script>
 
     <footer>
-        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
+        <p class="footer-content"></p>
     </footer>
 </body>
 

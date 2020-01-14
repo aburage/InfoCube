@@ -5,7 +5,7 @@
     $username = $_GET["username"];
     $password = $_GET["password"];
       print($username);
-    $pdo=new PDO("sqlite:infocube.sqlite");
+    $pdo=new PDO("sqlite:./SQL/infocube.sqlite");
     $st = $pdo->prepare("select * from user where username = ?");
     $st->execute(array($username));
     $user_on_db=$st->fetch();

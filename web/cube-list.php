@@ -45,7 +45,7 @@
     
     if(isset($_GET['stag'])) $stag=$_GET['stag']; 
 
-    $db = new PDO("sqlite:infocube.sqlite");
+    $db = new PDO("sqlite:./SQL/infocube.sqlite");
 //    if(h($row['tag'])==$stag){
 //        $result=$db->query("select * from cube where tag = ". $stag .";");
 //        print $stag;
@@ -114,7 +114,7 @@
     </div>
     
     <footer>
-        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
+        <p class="footer-content"></p>
     </footer>
     
 </body>

@@ -48,6 +48,27 @@ ul.navi-top a {
     font-weight: 600;
 }
 
+/*connect button*/
+.connect-btn{
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #498DE5;
+    border: solid 2px #498DE5;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.btn:active {
+    background: #67c5ff;
+    color: white;
+}
+
 /*cube card*/
 .card {
     background: linear-gradient(90deg, #498DE5 0%, #498DE5 18%, #F9F9F9 18%, #F9F9F9 100%);
@@ -71,7 +92,7 @@ ul.navi-top a {
     padding-left: 20px;
 }
 
-.move-image{
+.move-image {
     padding: 0px 0px 0px 10px;
     width: 60px;
     height: 60px;
@@ -146,11 +167,9 @@ ul.navi-top a {
     width: 700px;
 }
 
-.event-submit-button {
-    
-}
+.event-submit-button {}
 
-.cubetype-contents{
+.cubetype-contents {
     background-color: #498DE5;
     padding: 20px 0px 40px 0px;
     margin-left: auto;
@@ -168,7 +187,7 @@ ul.navi-top a {
     padding-left: 20px;
 }
 
-.form-card-button{
+.form-card-button {
     margin-left: auto;
     margin-right: auto;
 }
@@ -190,23 +209,21 @@ ul.navi-top a {
     width: 700px;
 }
 
-.login-submit-button {
-    
-}
-
-/*
+.login-submit-button {}
 
 .display-if-disconnected {
-    display: none;
+    /*    display: none;*/
 }
 
 .display-if-connecting {
     display: none;
 }
 
+/*
 .display-if-connected {
     display: none;
 }
+*/
 
 .cube-disconnected .display-if-disconnected {
     display: block;
@@ -218,13 +235,9 @@ ul.navi-top a {
 
 .cube-connected .display-if-connected {
     display: block;
-}*/
+}
 
 footer {
-/*
-    position: absolute;
-    bottom: 0;
-*/
     width: 100%;
     height: 50px;
     text-align: right;

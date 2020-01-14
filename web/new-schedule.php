@@ -16,13 +16,12 @@
     <p class="page-title">My Cube 追加：スケジュール</p>
 
     <?php
-
         if(isset($_GET['cube_name'])) $cube_name=$_GET['cube_name']; 
         if(isset($_GET['move'])) $move=$_GET['move']; 
         if(isset($_GET['day'])) $day=$_GET['day']; 
 
-        $db = new PDO("sqlite:infocube.sqlite");
-        if(isset($cube_name)){
+        $db = new PDO("sqlite:SQL/infocube.sqlite");
+        if(isset($cube_name) && isset($move) && isset($day)){
             $db->query("insert into cube values(1, null, '$cube_name', 'schedule', 0, '$move', 0, '$day', 0, 10, 0);");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
@@ -58,15 +57,10 @@
             <input type="submit" class="event-submit-button left">
         </div>
     </form>
-
-    <br>
-
-
-
-
-    <footer>
-        <p class="footer-content">© All rights reserved by 100kwLab. groupA</p>
-    </footer>
+    
+    <div class="add-event-section">
+        <a href="index.php" class="add-event-button">HOMEに戻る</a>
+    </div>
 
 </body>
 
