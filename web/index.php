@@ -48,9 +48,11 @@
         for($i = 0; $row=$result->fetch(); ++$i ){
             echo "<div class='card'>";
             if (strcmp(h($row['tag']), 'data') == 0){
-                echo "<img src='./images/weather.png' class='card-image'>";
+                echo "<img src='./images/data.png' class='card-image'>";
+            }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                echo "<img src='./images/schedule.png' class='card-image'>";
             }else{
-                echo "<img src='./images/notification.png' class='card-image'>";
+                echo "<img src='./images/feeling.png' class='card-image'>";
             }
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
@@ -59,9 +61,9 @@
             echo "</div></div>";
         }
     ?>
-
+    
     <div class="card">
-        <img src="./images/weather.png" alt="天気" class="card-image">
+        <img src="./images/data.png" alt="天気" class="card-image">
         <div class="card-content">
             <h2>My Cube 1</h2>
             <p>現在の天気（東京）</p>
