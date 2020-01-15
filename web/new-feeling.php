@@ -54,7 +54,7 @@
         </div>
 
         <div class="event-submit-section">
-            <input type="submit" class="event-submit-button left">
+            <input type="submit" class="event-submit-button left" value="保存">
         </div>
     </form>
     

@@ -11,7 +11,7 @@
     <ul class="navi-top">
         <li><a href="./index.php" class="home">InfoCube</a></li>
         <li><a href="./cube-list.php">My Cube 一覧</a></li>
-        <li><a href="./login_form.php">ログイン</a></li>
+<!--        <li><a href="./login_form.php">ログイン</a></li>-->
     </ul>
 
     <p class="page-title">HOME</p>
@@ -48,7 +48,6 @@
     $day1 = new DateTime('2020-01-15');
     $day2 = new DateTime('2020-01-13');
     $interval = $day1->diff($day2);
-    echo $interval->format('%a日');
 
     $db = new PDO("sqlite:SQL/infocube.sqlite");
     $result=$db->query("select * from cube");
@@ -90,13 +89,13 @@
                 
                 if(strpos( $weather, '雨' ) !== false){
                     //雨処理
-                    echo '<button class="swing">動きを確認</button>';
+                    echo '<button class="swing1">動きを確認</button>';
                 }else if(strpos( $weather, '晴' ) !== false){
                     //晴れ処理
-                    echo '<button class="round">動きを確認</button>';
+                    echo '<button class="round2">動きを確認</button>';
                 }else{
                     //曇り処理
-                    echo '<button class="straight">動きを確認</button>';
+                    echo '<button class="slide1">動きを確認</button>';
                 }
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
                 
@@ -162,7 +161,7 @@
             echo "</div></div>";
         }
     ?>
-
+       
         <div class="add-event-section">
             <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
         </div>

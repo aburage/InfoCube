@@ -167,7 +167,21 @@ ul.navi-top a {
     width: 700px;
 }
 
-.event-submit-button {}
+.event-submit-button {
+  display: inline-block;
+  padding: 0.2em 1em;
+  text-decoration: none;
+font-size: 1.3rem;
+  color: #359;
+  border: solid 2px #359;
+  border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+.event-submit-button:active {
+  background: #67c5ff;
+  color: white;
+}
 
 .cubetype-contents {
     background-color: #498DE5;

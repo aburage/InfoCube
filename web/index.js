@@ -10,7 +10,7 @@ document.getElementById('connect').addEventListener('click', async () => {
 //level1 small movement
 [...document.getElementsByClassName('straight1')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 2000);
+      await cube.move(30, 30, 1500);
   })
 });
 
@@ -42,43 +42,43 @@ document.getElementById('connect').addEventListener('click', async () => {
 
 [...document.getElementsByClassName('swing1')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(0, 30, 500);
-      await cube.move(0, -30, 500);
-      await cube.move(0, 30, 500);
-      await cube.move(0, -30, 500);
+      await cube.move(0, 20, 500);
+      await cube.move(0, -20, 500);
+      await cube.move(0, 20, 500);
+      await cube.move(0, -20, 500);
   })
 });
 
 //level2 midle movement
 [...document.getElementsByClassName('straight2')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 2000);
+      await cube.move(40, 40, 1500);
   })
 });
 
 [...document.getElementsByClassName('repeat2')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 500);
+      await cube.move(40, 40, 500);
       await cube.move(0, 0, 200);
-      await cube.move(30, 30, 500);
+      await cube.move(40, 40, 500);
       await cube.move(0, 0, 200);
-      await cube.move(30, 30, 500);
+      await cube.move(40, 40, 500);
       await cube.move(0, 0, 200);
   })
 });
 
 [...document.getElementsByClassName('round2')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(20, 40, 2000);
+      await cube.move(20, 50, 2000);
   })
 });
 
 [...document.getElementsByClassName('slide2')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 500);
-      await cube.move(-30, -30, 500);
-      await cube.move(30, 30, 500);
-      await cube.move(-30, -30, 500);
+      await cube.move(40, 40, 600);
+      await cube.move(-40, -40, 600);
+      await cube.move(40, 40, 600);
+      await cube.move(-40, -40, 600);
   })
 });
 
@@ -94,41 +94,41 @@ document.getElementById('connect').addEventListener('click', async () => {
 //level3 large movement
 [...document.getElementsByClassName('straight3')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 2000);
+      await cube.move(50, 50, 1500);
   })
 });
 
 [...document.getElementsByClassName('repeat3')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 500);
+      await cube.move(50, 50, 500);
       await cube.move(0, 0, 200);
-      await cube.move(30, 30, 500);
+      await cube.move(50, 50, 500);
       await cube.move(0, 0, 200);
-      await cube.move(30, 30, 500);
+      await cube.move(50, 50, 500);
       await cube.move(0, 0, 200);
   })
 });
 
 [...document.getElementsByClassName('round3')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(20, 40, 2000);
+      await cube.move(30, 70, 2000);
   })
 });
 
 [...document.getElementsByClassName('slide3')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(30, 30, 500);
-      await cube.move(-30, -30, 500);
-      await cube.move(30, 30, 500);
-      await cube.move(-30, -30, 500);
+      await cube.move(50, 50, 700);
+      await cube.move(-50, -50, 700);
+      await cube.move(50, 50, 700);
+      await cube.move(-50, -50, 700);
   })
 });
 
 [...document.getElementsByClassName('swing3')].forEach(element => {
   element.addEventListener('click', async () => {
-      await cube.move(0, 30, 500);
-      await cube.move(0, -30, 500);
-      await cube.move(0, 30, 500);
-      await cube.move(0, -30, 500);
+      await cube.move(0, 40, 500);
+      await cube.move(0, -40, 500);
+      await cube.move(0, 40, 500);
+      await cube.move(0, -40, 500);
   })
 });
