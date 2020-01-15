@@ -49,14 +49,7 @@
         for($i = 0; $row=$result->fetch(); ++$i ){
             echo "<div class='card'>";
             
-            if (strcmp(h($row['tag']), 'data') == 0){
-                $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
-                $json = file_get_contents($base_url, true);
-                $json = mb_convert_encoding($json, 'UTF-8');
-                // 連想配列の形式でjsonへ変換
-                $obj = json_decode($json, true);
-                $weather = $obj['forecasts'][$data_date]['image']['title']; 
-                
+            if (strcmp(h($row['tag']), 'data') == 0) {
                 echo "<img src='./images/data.png' class='card-image'>";
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
                 echo "<img src='./images/schedule.png' class='card-image'>";
@@ -81,30 +74,41 @@
                 echo "<p>". h($row['feeling_destination']). " さんから</p>";
             }
             
-            if (strcmp(h($row['middle_movement']), '1') == 0){
-                echo '<button class="straight">動きを確認</button>';
-            }else if (strcmp(h($row['middle_movement']), '2') == 0){
-                echo '<button class="repeat">動きを確認</button>';
-            }else if (strcmp(h($row['middle_movement']), '3') == 0){
-                echo '<button class="round">動きを確認</button>';
-            }else if (strcmp(h($row['middle_movement']), '4') == 0){
-                echo '<button class="slide">動きを確認</button>';
-            }else if (strcmp(h($row['middle_movement']), '5') == 0){
-                echo '<button class="swing">動きを確認</button>';
+            if(strcmp(h($row['tag']), 'data') == 0){
+                $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
+                $json = file_get_contents($base_url, true);
+                $json = mb_convert_encoding($json, 'UTF-8');
+                // 連想配列の形式でjsonへ変換
+                $obj = json_decode($json, true);
+                $weather = $obj['forecasts'][h($row['data_date'])]['image']['title']; 
+                
+                if(strpos( $weather, '雨' ) !== false){
+                    //雨処理
+                    echo '<button class="swing">動きを確認</button>';
+                }else if(strpos( $weather, '晴' ) !== false){
+                    //晴れ処理
+                    echo '<button class="round">動きを確認</button>';
+                }else{
+                    //曇り処理
+                    echo '<button class="straight">動きを確認</button>';
+                }
+            }else{
+               if (strcmp(h($row['middle_movement']), '1') == 0){
+                    echo '<button class="straight">動きを確認</button>';
+                }else if (strcmp(h($row['middle_movement']), '2') == 0){
+                    echo '<button class="repeat">動きを確認</button>';
+                }else if (strcmp(h($row['middle_movement']), '3') == 0){
+                    echo '<button class="round">動きを確認</button>';
+                }else if (strcmp(h($row['middle_movement']), '4') == 0){
+                    echo '<button class="slide">動きを確認</button>';
+                }else if (strcmp(h($row['middle_movement']), '5') == 0){
+                    echo '<button class="swing">動きを確認</button>';
+                } 
             }
-            
+
             echo "</div></div>";
         }
     ?>
-
-        <div class="card">
-            <img src="./images/data.png" alt="天気" class="card-image">
-            <div class="card-content">
-                <h2>My Cube 1</h2>
-                <p>現在の天気（東京）</p>
-                <button class="straight">動きを確認</button>
-            </div>
-        </div>
 
         <div class="add-event-section">
             <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
