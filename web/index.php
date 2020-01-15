@@ -28,7 +28,7 @@
 
     <div class="display-if-connected">
 
-        <?php
+    <?php
         function h($str){
             return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
     }
@@ -42,7 +42,13 @@
     if(isset($_GET['schedule_date'])) $schedule_date=$_GET['schedule_date']; 
     if(isset($_GET['data_location'])) $data_location=$_GET['data_location']; 
     if(isset($_GET['data_date'])) $data_date=$_GET['data_date']; 
-    if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination']; 
+    if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination'];
+    
+
+    $day1 = new DateTime('2020-01-15');
+    $day2 = new DateTime('2020-01-13');
+    $interval = $day1->diff($day2);
+    echo $interval->format('%a日');
 
     $db = new PDO("sqlite:SQL/infocube.sqlite");
     $result=$db->query("select * from cube");
@@ -92,17 +98,64 @@
                     //曇り処理
                     echo '<button class="straight">動きを確認</button>';
                 }
+            }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                
+                $day2 = new DateTime(h($row['schedule_date']));
+                $interval = $day1->diff($day2);
+                $left_time = $interval->format('%a');
+                
+                if (strcmp(h($row['middle_movement']), '1') == 0){
+                    if((int)$left_time<=1){
+                        echo '<button class="straight3">動きを確認</button>';
+                    }else if((int)$left_time<=3){
+                        echo '<button class="straight2">動きを確認</button>';
+                    }else if((int)$left_time<=7){
+                        echo '<button class="straight1">動きを確認</button>';
+                    }
+                }else if (strcmp(h($row['middle_movement']), '2') == 0){
+                    if((int)$left_time<=1){
+                        echo '<button class="repeat3">動きを確認</button>';
+                    }else if((int)$left_time<=3){
+                        echo '<button class="repeat2">動きを確認</button>';
+                    }else if((int)$left_time<=7){
+                        echo '<button class="repeat1">動きを確認</button>';
+                    }
+                }else if (strcmp(h($row['middle_movement']), '3') == 0){
+                    if((int)$left_time<=1){
+                        echo '<button class="round3">動きを確認</button>';
+                    }else if((int)$left_time<=3){
+                        echo '<button class="round2">動きを確認</button>';
+                    }else if((int)$left_time<=7){
+                        echo '<button class="round1">動きを確認</button>';
+                    }
+                }else if (strcmp(h($row['middle_movement']), '4') == 0){
+                    if((int)$left_time<=1){
+                        echo '<button class="slide3">動きを確認</button>';
+                    }else if((int)$left_time<=3){
+                        echo '<button class="slide2">動きを確認</button>';
+                    }else if((int)$left_time<=7){
+                        echo '<button class="slide1">動きを確認</button>';
+                    }
+                }else if (strcmp(h($row['middle_movement']), '5') == 0){
+                    if((int)$left_time<=1){
+                        echo '<button class="swing3">動きを確認</button>';
+                    }else if((int)$left_time<=3){
+                        echo '<button class="swing2">動きを確認</button>';
+                    }else if((int)$left_time<=7){
+                        echo '<button class="swing1">動きを確認</button>';
+                    }
+                } 
             }else{
                if (strcmp(h($row['middle_movement']), '1') == 0){
-                    echo '<button class="straight">動きを確認</button>';
+                    echo '<button class="straight2">動きを確認</button>';
                 }else if (strcmp(h($row['middle_movement']), '2') == 0){
-                    echo '<button class="repeat">動きを確認</button>';
+                    echo '<button class="repeat2">動きを確認</button>';
                 }else if (strcmp(h($row['middle_movement']), '3') == 0){
-                    echo '<button class="round">動きを確認</button>';
+                    echo '<button class="round2">動きを確認</button>';
                 }else if (strcmp(h($row['middle_movement']), '4') == 0){
-                    echo '<button class="slide">動きを確認</button>';
+                    echo '<button class="slide2">動きを確認</button>';
                 }else if (strcmp(h($row['middle_movement']), '5') == 0){
-                    echo '<button class="swing">動きを確認</button>';
+                    echo '<button class="swing2">動きを確認</button>';
                 } 
             }
 
