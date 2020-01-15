@@ -21,13 +21,12 @@
     ?>
     <form action=cube-list.php method=get>
     <div class="filter">
-        <select name="tag-select">
-            <option name="stag" value="" hidden>タグを選択</option>
-            <option name="stag" value="schedule">スケジュール</option>
-            <option name="stag" value="data">データ</option>
-            <option name="stag" value="feeling">フィーリング</option>
+        <select name="stag">
+            <option value="all">全てのタグ</option>
+            <option value="schedule">スケジュール</option>
+            <option value="data">データ</option>
+            <option value="feeling">フィーリング</option>
         </select>
-<!--        <input type="date" class="filter-form">-->
         <input type=submit border=0 value="検索">
     </div>
     </form>
@@ -46,12 +45,15 @@
     if(isset($_GET['stag'])) $stag=$_GET['stag']; 
 
     $db = new PDO("sqlite:./SQL/infocube.sqlite");
-//    if(h($row['tag'])==$stag){
-//        $result=$db->query("select * from cube where tag = ". $stag .";");
-//        print $stag;
-//    }else{
+    if($stag == "schedule"){
+        $result=$db->query("select * from cube where tag = 'schedule';");
+    }else if($stag == "data"){
+        $result=$db->query("select * from cube where tag = 'data';");
+    }else if($stag == "feeling"){
+        $result=$db->query("select * from cube where tag = 'feeling';");
+    }else{
         $result=$db->query("SELECT * FROM cube");
-//    }
+    }
     
         for($i = 0; $row=$result->fetch(); ++$i ){
             
