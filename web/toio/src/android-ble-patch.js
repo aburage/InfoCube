@@ -1,3 +1,5 @@
+// 参考元　https://github.com/snoguchi/toio-browser-example
+
 if (/android/i.test(navigator.userAgent)) {
   const mutexify = (promiseFn, mutex = Promise.resolve()) => {
     return function(...args) {

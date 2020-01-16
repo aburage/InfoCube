@@ -25,7 +25,6 @@
         connecting ...
     </div>
 
-
     <div class="display-if-connected">
 
     <?php
@@ -87,10 +86,10 @@
                 $obj = json_decode($json, true);
                 $weather = $obj['forecasts'][h($row['data_date'])]['image']['title']; 
                 
-                if(strpos( $weather, '雨' ) !== false){
+                if(strpos( $weather, '雨') !== false){
                     //雨処理
                     echo '<button class="swing1">動きを確認</button>';
-                }else if(strpos( $weather, '晴' ) !== false){
+                }else if(strpos( $weather, '晴') !== false){
                     //晴れ処理
                     echo '<button class="round2">動きを確認</button>';
                 }else{

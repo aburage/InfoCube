@@ -223,21 +223,13 @@ font-size: 1.3rem;
     width: 700px;
 }
 
-.login-submit-button {}
-
-.display-if-disconnected {
-    /*    display: none;*/
+.login-submit-button {
+    
 }
 
 .display-if-connecting {
     display: none;
 }
-
-/*
-.display-if-connected {
-    display: none;
-}
-*/
 
 .cube-disconnected .display-if-disconnected {
     display: block;
