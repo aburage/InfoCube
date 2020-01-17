@@ -52,7 +52,7 @@
     }else if($stag == "feeling"){
         $result=$db->query("select * from cube where tag = 'feeling';");
     }else{
-        $result=$db->query("SELECT * FROM cube");
+        $result=$db->query("select * from cube");
     }
     
         for($i = 0; $row=$result->fetch(); ++$i ){
@@ -70,13 +70,13 @@
             echo "<h2>". h($row['cube_name']). "</h2>";
             
             if(h($row['middle_movement']) == 1){
-                echo "<img src='./images/icon_repeat.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 2){
-                echo "<img src='./images/icon_round.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 3){
-                echo "<img src='./images/icon_slide.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 4){
                 echo "<img src='./images/icon_straight.png' class='move-image'>";
+            }else if(h($row['middle_movement']) == 2){
+                echo "<img src='./images/icon_repeat.png' class='move-image'>";
+            }else if(h($row['middle_movement']) == 3){
+                echo "<img src='./images/icon_round.png' class='move-image'>";
+            }else if(h($row['middle_movement']) == 4){
+                echo "<img src='./images/icon_slide.png' class='move-image'>";
             }else{
                 echo "<img src='./images/icon_swing.png' class='move-image'>";
             }
