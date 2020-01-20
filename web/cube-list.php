@@ -36,9 +36,7 @@
     if(isset($_GET['cube_number'])) $cube_number=$_GET['cube_number']; 
     if(isset($_GET['cube_name'])) $cube_name=$_GET['cube_name']; 
     if(isset($_GET['tag'])) $tag=$_GET['tag']; 
-    if(isset($_GET['start_movement'])) $start_movement=$_GET['start_movement']; 
-    if(isset($_GET['middle_movement'])) $middle_movement=$_GET['middle_movement']; 
-    if(isset($_GET['end_movement'])) $end_movement=$_GET['end_movement'];
+    if(isset($_GET['movement'])) $movement=$_GET['movement'];
     if(isset($_GET['date'])) $date=$_GET['date']; 
     if(isset($_GET['time'])) $type=$_GET['time']; 
     
@@ -69,13 +67,13 @@
             echo "<div class='card-content'>";
             echo "<h2>". h($row['cube_name']). "</h2>";
             
-            if(h($row['middle_movement']) == 1){
+            if(h($row['movement']) == 1){
                 echo "<img src='./images/icon_straight.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 2){
+            }else if(h($row['movement']) == 2){
                 echo "<img src='./images/icon_repeat.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 3){
+            }else if(h($row['movement']) == 3){
                 echo "<img src='./images/icon_round.png' class='move-image'>";
-            }else if(h($row['middle_movement']) == 4){
+            }else if(h($row['movement']) == 4){
                 echo "<img src='./images/icon_slide.png' class='move-image'>";
             }else{
                 echo "<img src='./images/icon_swing.png' class='move-image'>";

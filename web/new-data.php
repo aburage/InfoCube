@@ -21,7 +21,7 @@
         if(isset($_GET['date'])) $date=$_GET['date']; 
 
         if (isset($cube_name)) {
-            $db->query("insert into cube values(1, null, '$cube_name', 'data', 1, 1, 1, 0, '$location', '$date', 1);");
+            $db->query("insert into cube values(1, null, '$cube_name', 'data', 1, 0, '$location', '$date', 1);");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
     $db = new PDO("sqlite:infocube.sqlite");

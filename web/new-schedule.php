@@ -22,7 +22,7 @@
 
         $db = new PDO("sqlite:SQL/infocube.sqlite");
         if(isset($cube_name) && isset($move) && isset($day)){
-            $db->query("insert into cube values(1, null, '$cube_name', 'schedule', 0, '$move', 0, '$day', 0, 10, 0);");
+            $db->query("insert into cube values(1, null, '$cube_name', 'schedule', '$move', '$day', 0, 10, 0);");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
     ?>

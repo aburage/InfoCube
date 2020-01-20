@@ -22,7 +22,7 @@
 
         $db = new PDO("sqlite:SQL/infocube.sqlite");
         if(isset($cube_name)){
-            $db->query("insert into cube values(1, null, '$cube_name', 'feeling', 0, '$move', 0, 0, 0, 10, $name);");
+            $db->query("insert into cube values(1, null, '$cube_name', 'feeling', '$move', 0, 0, 10, $name);");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
     ?>
