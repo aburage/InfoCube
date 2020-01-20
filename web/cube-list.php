@@ -80,20 +80,25 @@ session_start();
             
             print "<div class='card-content'>";
             print "<h2>". h($row['cube_name']). "</h2>";
-            
-            if(h($row['movement']) == 1){
-                print "<img src='./images/icon_straight.png' class='move-image'>";
-            }else if(h($row['movement']) == 2){
-                print "<img src='./images/icon_repeat.png' class='move-image'>";
-            }else if(h($row['movement']) == 3){
-                print "<img src='./images/icon_round.png' class='move-image'>";
-            }else if(h($row['movement']) == 4){
-                print "<img src='./images/icon_slide.png' class='move-image'>";
-            }else{
-                print "<img src='./images/icon_swing.png' class='move-image'>";
-            }
 
             if (strcmp(h($row['tag']), 'data') == 0){
+                $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
+                $json = file_get_contents($base_url, true);
+                $json = mb_convert_encoding($json, 'UTF-8');
+                $obj = json_decode($json, true);
+                $weather = $obj['forecasts'][h($row['data_date'])]['image']['title']; 
+                
+                if(strpos( $weather, '雨') !== false){
+                    //雨
+                    print "<img src='./images/icon_swing.png' class='move-image'>";
+                }else if(strpos( $weather, '晴') !== false){
+                    //晴れ
+                    print "<img src='./images/icon_round.png' class='move-image'>";
+                }else{
+                    //曇り
+                    print "<img src='./images/icon_slide.png' class='move-image'>";
+                }
+                
                 if (strcmp(h($row['data_date']), '0') == 0){
                     print "<p>今日</p>";
                 }else if(strcmp(h($row['data_date']), '1') == 0){
@@ -102,8 +107,30 @@ session_start();
                     print "<p>明後日</p>";
                 }
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
+                if(h($row['movement']) == 1){
+                    print "<img src='./images/icon_straight.png' class='move-image'>";
+                }else if(h($row['movement']) == 2){
+                    print "<img src='./images/icon_repeat.png' class='move-image'>";
+                }else if(h($row['movement']) == 3){
+                    print "<img src='./images/icon_round.png' class='move-image'>";
+                }else if(h($row['movement']) == 4){
+                    print "<img src='./images/icon_slide.png' class='move-image'>";
+                }else{
+                    print "<img src='./images/icon_swing.png' class='move-image'>";
+                }
                 print "<p>". h($row['schedule_date']). "</p>";
             }else{
+                if(h($row['movement']) == 1){
+                    print "<img src='./images/icon_straight.png' class='move-image'>";
+                }else if(h($row['movement']) == 2){
+                    print "<img src='./images/icon_repeat.png' class='move-image'>";
+                }else if(h($row['movement']) == 3){
+                    print "<img src='./images/icon_round.png' class='move-image'>";
+                }else if(h($row['movement']) == 4){
+                    print "<img src='./images/icon_slide.png' class='move-image'>";
+                }else{
+                    print "<img src='./images/icon_swing.png' class='move-image'>";
+                }
                 print "<p>". h($row['feeling_destination']). " さんから</p>";
             }
             print "</div></div>";

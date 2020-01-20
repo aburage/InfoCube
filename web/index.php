@@ -53,120 +53,117 @@ session_start();
     if(isset($_GET['data_date'])) $data_date=$_GET['data_date'];
     if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination'];
     
-    $day1 = new DateTime('2020-01-15');
-    $day2 = new DateTime('2020-01-13');
-    $interval = $day1->diff($day2);
+    $today = new DateTime('now');
 
     $db = new PDO("sqlite:SQL/infocube.sqlite");
     $result=$db->query('select * from cube where user_name="' . $_SESSION["user"] .'";');
         for($i = 0; $row=$result->fetch(); ++$i ){
-            echo "<div class='card'>";
+            print "<div class='card'>";
             
             if (strcmp(h($row['tag']), 'data') == 0) {
-                echo "<img src='./images/data.png' class='card-image'>";
+                print "<img src='./images/data.png' class='card-image'>";
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
-                echo "<img src='./images/schedule.png' class='card-image'>";
+                print "<img src='./images/schedule.png' class='card-image'>";
             }else{
-                echo "<img src='./images/feeling.png' class='card-image'>";
+                print "<img src='./images/feeling.png' class='card-image'>";
             }
             
-            echo "<div class='card-content'>";
-            echo "<h2>". h($row['cube_name']). "</h2>";
+            print "<div class='card-content'>";
+            print "<h2>". h($row['cube_name']). "</h2>";
             
             if (strcmp(h($row['tag']), 'data') == 0){
                 if (strcmp(h($row['data_date']), '0') == 0){
-                    echo "<p>今日</p>";
+                    print "<p>今日</p>";
                 }else if(strcmp(h($row['data_date']), '1') == 0){
-                    echo "<p>明日</p>";
+                    print "<p>明日</p>";
                 }else{
-                    echo "<p>明後日</p>";
+                    print "<p>明後日</p>";
                 }
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
-                echo "<p>". h($row['schedule_date']). "</p>";
+                print "<p>". h($row['schedule_date']). "</p>";
             }else{
-                echo "<p>". h($row['feeling_destination']). " さんから</p>";
+                print "<p>". h($row['feeling_destination']). " さんから</p>";
             }
             
             if(strcmp(h($row['tag']), 'data') == 0){
                 $base_url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" . h($row['data_location']);
                 $json = file_get_contents($base_url, true);
                 $json = mb_convert_encoding($json, 'UTF-8');
-                // 連想配列の形式でjsonへ変換
                 $obj = json_decode($json, true);
                 $weather = $obj['forecasts'][h($row['data_date'])]['image']['title']; 
                 
                 if(strpos( $weather, '雨') !== false){
                     //雨処理
-                    echo '<button class="swing1">動きを確認</button>';
+                    print '<button class="swing1">動きを確認</button>';
                 }else if(strpos( $weather, '晴') !== false){
                     //晴れ処理
-                    echo '<button class="round2">動きを確認</button>';
+                    print '<button class="round2">動きを確認</button>';
                 }else{
                     //曇り処理
-                    echo '<button class="slide1">動きを確認</button>';
+                    print '<button class="slide1">動きを確認</button>';
                 }
             }else if(strcmp(h($row['tag']), 'schedule') == 0){
                 
                 $day2 = new DateTime(h($row['schedule_date']));
-                $interval = $day1->diff($day2);
+                $interval = $today->diff($day2);
                 $left_time = $interval->format('%a');
                 
                 if (strcmp(h($row['movement']), '1') == 0){
                     if((int)$left_time<=1){
-                        echo '<button class="straight3">動きを確認</button>';
+                        print '<button class="straight3">動きを確認</button>';
                     }else if((int)$left_time<=3){
-                        echo '<button class="straight2">動きを確認</button>';
-                    }else if((int)$left_time<=7){
-                        echo '<button class="straight1">動きを確認</button>';
+                        print '<button class="straight2">動きを確認</button>';
+                    }else{
+                        print '<button class="straight1">動きを確認</button>';
                     }
                 }else if (strcmp(h($row['movement']), '2') == 0){
                     if((int)$left_time<=1){
-                        echo '<button class="repeat3">動きを確認</button>';
+                        print '<button class="repeat3">動きを確認</button>';
                     }else if((int)$left_time<=3){
-                        echo '<button class="repeat2">動きを確認</button>';
-                    }else if((int)$left_time<=7){
-                        echo '<button class="repeat1">動きを確認</button>';
+                        print '<button class="repeat2">動きを確認</button>';
+                    }else{
+                        print '<button class="repeat1">動きを確認</button>';
                     }
                 }else if (strcmp(h($row['movement']), '3') == 0){
                     if((int)$left_time<=1){
-                        echo '<button class="round3">動きを確認</button>';
+                        print '<button class="round3">動きを確認</button>';
                     }else if((int)$left_time<=3){
-                        echo '<button class="round2">動きを確認</button>';
-                    }else if((int)$left_time<=7){
-                        echo '<button class="round1">動きを確認</button>';
+                        print '<button class="round2">動きを確認</button>';
+                    }else{
+                        print '<button class="round1">動きを確認</button>';
                     }
                 }else if (strcmp(h($row['movement']), '4') == 0){
                     if((int)$left_time<=1){
-                        echo '<button class="slide3">動きを確認</button>';
+                        print '<button class="slide3">動きを確認</button>';
                     }else if((int)$left_time<=3){
-                        echo '<button class="slide2">動きを確認</button>';
-                    }else if((int)$left_time<=7){
-                        echo '<button class="slide1">動きを確認</button>';
+                        print '<button class="slide2">動きを確認</button>';
+                    }else{
+                        print '<button class="slide1">動きを確認</button>';
                     }
                 }else if (strcmp(h($row['movement']), '5') == 0){
                     if((int)$left_time<=1){
-                        echo '<button class="swing3">動きを確認</button>';
+                        print '<button class="swing3">動きを確認</button>';
                     }else if((int)$left_time<=3){
-                        echo '<button class="swing2">動きを確認</button>';
-                    }else if((int)$left_time<=7){
-                        echo '<button class="swing1">動きを確認</button>';
+                        print '<button class="swing2">動きを確認</button>';
+                    }else{
+                        print '<button class="swing1">動きを確認</button>';
                     }
                 } 
             }else{
                if (strcmp(h($row['movement']), '1') == 0){
-                    echo '<button class="straight2">動きを確認</button>';
+                    print '<button class="straight2">動きを確認</button>';
                 }else if (strcmp(h($row['movement']), '2') == 0){
-                    echo '<button class="repeat2">動きを確認</button>';
+                    print '<button class="repeat2">動きを確認</button>';
                 }else if (strcmp(h($row['movement']), '3') == 0){
-                    echo '<button class="round2">動きを確認</button>';
+                    print '<button class="round2">動きを確認</button>';
                 }else if (strcmp(h($row['movement']), '4') == 0){
-                    echo '<button class="slide2">動きを確認</button>';
+                    print '<button class="slide2">動きを確認</button>';
                 }else if (strcmp(h($row['movement']), '5') == 0){
-                    echo '<button class="swing2">動きを確認</button>';
+                    print '<button class="swing2">動きを確認</button>';
                 } 
             }
 
-            echo "</div></div>";
+            print "</div></div>";
         }
     }else{
         print '<p class="logout-now"><a href="login_form.php">[ログイン]</a></p>';
