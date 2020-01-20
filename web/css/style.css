@@ -69,6 +69,19 @@ ul.navi-top a {
     color: white;
 }
 
+.login-now{
+    margin: auto;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.logout-now{
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
 /*cube card*/
 .card {
     background: linear-gradient(90deg, #498DE5 0%, #498DE5 18%, #F9F9F9 18%, #F9F9F9 100%);

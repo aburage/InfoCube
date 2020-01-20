@@ -1,3 +1,8 @@
+<?php
+function h($str) { return htmlspecialchars($str, ENT_QUOTES, "UTF-8"); }
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,27 +16,34 @@
     <ul class="navi-top">
         <li><a href="./index.php" class="home">InfoCube</a></li>
         <li><a href="./cube-list.php">My Cube 一覧</a></li>
-<!--        <li><a href="./login_form.php">ログイン</a></li>-->
+        <?php 
+        if (isset($_SESSION["user"])){
+            print '<li><a href="logout.php">ログアウト</a></li>';
+        }else{
+            print '<li><a href="./login_form.php">ログイン</a></li>';
+        }
+        ?>
     </ul>
 
     <p class="page-title">HOME</p>
-
-    <div class="display-if-disconnected connect-btn">
-        <button class="btn" id="connect">connect to cube</button>
-    </div>
-
-
-    <div class="display-if-connecting center">
-        connecting ...
-    </div>
-
-    <div class="display-if-connected">
+    <div>
 
     <?php
-        function h($str){
-            return htmlspecialchars($str, ENT_QUOTES, "UTF-8");
-    }
+    
+    if (isset($_SESSION["user"])){
+    
+    print '<div class="login-now"><p>' . $_SESSION["user"] . 'としてログイン中</p></div>';
+        
+    print '<div class="display-if-disconnected connect-btn">';
+    print '<button class="btn" id="connect">connect to cube</button>';
+    print '</div>';
 
+    print '<div class="display-if-connecting center">';
+    print 'connecting ...';
+    print '</div>';
+
+    print '<div class="display-if-connected">';
+        
     if(isset($_GET['cube_number'])) $cube_number=$_GET['cube_number'];
     if(isset($_GET['cube_name'])) $cube_name=$_GET['cube_name'];
     if(isset($_GET['tag'])) $tag=$_GET['tag'];
@@ -41,13 +53,12 @@
     if(isset($_GET['data_date'])) $data_date=$_GET['data_date'];
     if(isset($_GET['feeling_destination'])) $feeling_destination=$_GET['feeling_destination'];
     
-
     $day1 = new DateTime('2020-01-15');
     $day2 = new DateTime('2020-01-13');
     $interval = $day1->diff($day2);
 
     $db = new PDO("sqlite:SQL/infocube.sqlite");
-    $result=$db->query("select * from cube");
+    $result=$db->query('select * from cube where user_name="' . $_SESSION["user"] .'";');
         for($i = 0; $row=$result->fetch(); ++$i ){
             echo "<div class='card'>";
             
@@ -157,6 +168,9 @@
 
             echo "</div></div>";
         }
+    }else{
+        print '<p class="logout-now"><a href="login_form.php">[ログイン]</a></p>';
+    }
     ?>
        
         <div class="add-event-section">

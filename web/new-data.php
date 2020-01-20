@@ -1,3 +1,8 @@
+<?php
+function h($str) { return htmlspecialchars($str, ENT_QUOTES, "UTF-8"); }
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -19,9 +24,10 @@
         if(isset($_GET['cube_name'])) $cube_name=$_GET['cube_name'];
         if(isset($_GET['location'])) $location=$_GET['location'];
         if(isset($_GET['date'])) $date=$_GET['date']; 
-
+    
+        $user_name = $_SESSION["user"];
         if (isset($cube_name)) {
-            $db->query("insert into cube values(1, null, '$cube_name', 'data', 1, 0, '$location', '$date', 1);");
+            $db->query("insert into cube values('$user_name', null, '$cube_name', 'data', 1, 0, '$location', '$date', 0);");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
     $db = new PDO("sqlite:infocube.sqlite");

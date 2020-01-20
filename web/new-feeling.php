@@ -1,3 +1,8 @@
+<?php
+function h($str) { return htmlspecialchars($str, ENT_QUOTES, "UTF-8"); }
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -21,8 +26,9 @@
         if(isset($_GET['name'])) $name=$_GET['name']; 
 
         $db = new PDO("sqlite:SQL/infocube.sqlite");
+        $user_name = $_SESSION["user"];
         if(isset($cube_name)){
-            $db->query("insert into cube values(1, null, '$cube_name', 'feeling', '$move', 0, 0, 10, $name);");
+            $db->query("insert into cube values('$name', null, '$cube_name', 'feeling', '$move', 0, 0, 10, '$user_name');");
             print "<h3 style='text-align: center; color: #935;'>送信されました</h3>";
         }
     ?>
@@ -48,7 +54,7 @@
             <input type="radio" name="move" value="5">SWING
         </div>
 
-        <p class="form-title">送る相手のID</p>
+        <p class="form-title">送る相手の名前</p>
         <div class="cubeform-contents">
             <input class="left" name="name">
         </div>

@@ -1,3 +1,26 @@
+<?php
+    session_start();
+
+    if (isset($_GET["username"]) && isset($_GET["passwd"])){
+        $username = $_GET["username"];
+        $passwd = $_GET["passwd"];
+        
+        $pdo = new PDO("sqlite:./SQL/infocube.sqlite");
+        $st = $pdo->prepare("select * from user where username='?'");
+        $st->execute(array($username));
+        $user_on_db = $st->fetch();
+        
+        if(!$user_on_db){
+            $result = "指定されたユーザが存在しません";
+        }else if($passwd == $_SESSION["passwd"]){
+            $_SESSION["user"] = "username";
+            $result = "ようこそ" . $username . "さん。ログインに成功しました。";
+        }else{
+            $result = "パスワードが違います。";
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -23,7 +46,7 @@
 
             <p class="form-title">パスワード</p>
             <div class="login-contents">
-                パスワード：<input type="password" name="password">
+                パスワード：<input type="password" name="passwd">
             </div>
             <div class="login-submit-section">
                 <input type="submit" class="login-submit-button" value="送信">

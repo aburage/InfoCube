@@ -1,24 +1,27 @@
 <?php
-  session_start();
+session_start();
 
-  if (isset($_GET["username"]) && isset($_GET["password"])) {
+if(isset($_GET["username"]) && isset($_GET["passwd"])){
     $username = $_GET["username"];
-    $password = $_GET["password"];
-      print($username);
-    $pdo=new PDO("sqlite:./SQL/infocube.sqlite");
-    $st = $pdo->prepare("select * from user where username = ?");
-    $st->execute(array($username));
-    $user_on_db=$st->fetch();
-
-    if (!$user_on_db) {
-      $result = "指定されたユーザが存在しません。";
-    }else if ($password==$user_on_db["password"]){
-      $_SESSION["user"] = $username;
-      $result = "ようこそ" . $username . "さん。ログインに成功しました。";
-    }else {
+    $passwd = $_GET["passwd"];
+    
+    $pdo = new PDO("sqlite:./SQL/infocube.sqlite");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    $st = $pdo->prepare("select * from user where username=? or password=?;");
+    $st->execute(array($username, $passwd));
+    $user_on_db = $st->fetch();
+    
+    if ($username != $user_on_db["username"]){
+        $result = "指定したユーザが存在しません。";
+    }
+    else if($passwd == $user_on_db["password"]){
+        $_SESSION["user"] = $username;
+        $result = "ようこそ" . $username . "さん。ログインに成功しました。";
+    }else{
         $result = "パスワードが違います。";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
