@@ -7,11 +7,11 @@ if(isset($_GET["username"]) && isset($_GET["passwd"])){
     
     $pdo = new PDO("sqlite:./SQL/infocube.sqlite");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    $st = $pdo->prepare("select * from user where username=? or password=?;");
+    $st = $pdo->prepare("select * from user where username=? and password=?;");
     $st->execute(array($username, $passwd));
     $user_on_db = $st->fetch();
     
-    if ($username != $user_on_db["username"]){
+    if (!$user_on_db){
         $result = "指定したユーザが存在しません。";
         $link = '<p><a href="login_form.php">ログイン画面に戻る</a></p>';
     }else if($passwd == $user_on_db["password"]){

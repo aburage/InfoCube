@@ -1,12 +1,3 @@
-<?php
-    session_start();
-
-    if (isset($_GET["username"]) && isset($_GET["passwd"])){
-        $username = $_GET["username"];
-        $passwd = $_GET["passwd"];
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
