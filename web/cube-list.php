@@ -42,7 +42,8 @@ session_start();
         <input type=submit border=0 value="検索">
     </div>
     </form>
-
+    
+    <form action=cube-list.php method=get>
     <?php
     
     if (isset($_SESSION["user"])){
@@ -55,17 +56,22 @@ session_start();
     if(isset($_GET['time'])) $type=$_GET['time']; 
     
     if(isset($_GET['stag'])) $stag=$_GET['stag']; 
+        
+    if(isset($_GET['deleteid'])) $deleteid=$_GET['deleteid'];
 
     $db = new PDO("sqlite:./SQL/infocube.sqlite");
+
     if($stag == "schedule"){
-        $result=$db->query("select * from cube where tag = 'schedule' and user_name='" . $_SESSION["user"] .'";');
+        $result=$db->query('select * from cube where tag = "schedule" and user_name="' . $_SESSION["user"] .'";');
     }else if($stag == "data"){
-        $result=$db->query("select * from cube where tag = 'data' and user_name='" . $_SESSION["user"] .'";');
+        $result=$db->query('select * from cube where tag = "data" and user_name="' . $_SESSION["user"] .'";');
     }else if($stag == "feeling"){
-        $result=$db->query("select * from cube where tag = 'feeling and user_name='" . $_SESSION["user"] .'";');
+        $result=$db->query('select * from cube where tag = "feeling" and user_name="' . $_SESSION["user"] .'";');
     }else{
         $result=$db->query('select * from cube where user_name="' . $_SESSION["user"] .'";');
     }
+
+    $db->query("delete from cube where cube_number ='$deleteid'");
     
         for($i = 0; $row=$result->fetch(); ++$i ){
             
@@ -133,12 +139,14 @@ session_start();
                 }
                 print "<p>". h($row['feeling_destination']). " さんから</p>";
             }
+            print "<button name='deleteid' value='" . h($row['cube_number']). "'>削除</button>";
             print "</div></div>";
         }
     }else{
         print '<p class="login_link"><a href="login_form.php">[ログイン]</a></p>';
     }
     ?>
+    </form>
     <div class="add-event-section">
         <a href="new-cube.php" class="add-event-button">My Cube 追加</a>
     </div>
