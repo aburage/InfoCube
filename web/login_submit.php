@@ -7,8 +7,8 @@ if(isset($_GET["username"]) && isset($_GET["passwd"])){
     
     $pdo = new PDO("sqlite:./SQL/infocube.sqlite");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    $st = $pdo->prepare("select * from user where username=? and password=?;");
-    $st->execute(array($username, $passwd));
+    $st = $pdo->prepare("select * from user where username like?");
+    $st->execute(array($username));
     $user_on_db = $st->fetch();
     
     if (!$user_on_db){
