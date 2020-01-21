@@ -54,7 +54,7 @@ session_start();
     if(isset($_GET['movement'])) $movement=$_GET['movement'];
     if(isset($_GET['date'])) $date=$_GET['date']; 
     if(isset($_GET['time'])) $type=$_GET['time']; 
-    
+    $stag="all";
     if(isset($_GET['stag'])) $stag=$_GET['stag']; 
         
     if(isset($_GET['deleteid'])) $deleteid=$_GET['deleteid'];
