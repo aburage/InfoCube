@@ -60,19 +60,23 @@ session_start();
     if(isset($_GET['deleteid'])) $deleteid=$_GET['deleteid'];
 
     $db = new PDO("sqlite:./SQL/infocube.sqlite");
-
-    if($stag == "schedule"){
+        
+    if (isset($_GET['stag'])){
+      if($stag == "schedule"){
         $result=$db->query('select * from cube where tag = "schedule" and user_name="' . $_SESSION["user"] .'";');
-    }else if($stag == "data"){
-        $result=$db->query('select * from cube where tag = "data" and user_name="' . $_SESSION["user"] .'";');
-    }else if($stag == "feeling"){
-        $result=$db->query('select * from cube where tag = "feeling" and user_name="' . $_SESSION["user"] .'";');
+        }else if($stag == "data"){
+            $result=$db->query('select * from cube where tag = "data" and user_name="' . $_SESSION["user"] .'";');
+        }else if($stag == "feeling"){
+            $result=$db->query('select * from cube where tag = "feeling" and user_name="' . $_SESSION["user"] .'";');
+        }else{
+            $result=$db->query('select * from cube where user_name="' . $_SESSION["user"] .'";');
+    }
     }else{
         $result=$db->query('select * from cube where user_name="' . $_SESSION["user"] .'";');
     }
-
-    $db->query("delete from cube where cube_number ='$deleteid'");
-    
+    if (isset($_GET['deleteid'])){
+        $db->query("delete from cube where cube_number ='$deleteid'");
+    }
         for($i = 0; $row=$result->fetch(); ++$i ){
             
             print "<div class='card'>";
