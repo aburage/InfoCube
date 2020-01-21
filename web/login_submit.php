@@ -13,12 +13,14 @@ if(isset($_GET["username"]) && isset($_GET["passwd"])){
     
     if ($username != $user_on_db["username"]){
         $result = "指定したユーザが存在しません。";
-    }
-    else if($passwd == $user_on_db["password"]){
+        $link = '<p><a href="login_form.php">ログイン画面に戻る</a></p>';
+    }else if($passwd == $user_on_db["password"]){
         $_SESSION["user"] = $username;
         $result = "ようこそ" . $username . "さん。ログインに成功しました。";
+        $link = '<p><a href="index.php">HOMEに戻る</a></p>';
     }else{
         $result = "パスワードが違います。";
+        $link = '<p><a href="login_form.php">ログイン画面に戻る</a></p>';
     }
 }
 
@@ -36,11 +38,10 @@ if(isset($_GET["username"]) && isset($_GET["passwd"])){
 <body>
    <ul class="navi-top">
         <li><a href="./index.php" class="home">InfoCube</a></li>
-        <li><a href="./cube-list.php">My Cube 一覧</a></li>
     </ul>
     <div class="cube">
         <h2><?php print $result; ?></h2>
-        <p><a href="index.php">HOMEに戻る</a></p>
+        <?php print $link; ?>
     </div>
 </body>
 

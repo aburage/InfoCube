@@ -15,7 +15,6 @@
   <body>
    <ul class="navi-top">
         <li><a href="./index.php" class="home">InfoCube</a></li>
-        <li><a href="./cube-list.php">My Cube 一覧</a></li>
         <li><a href="./login_form.php">ログイン</a></li>
     </ul>
     <div class="cube">
