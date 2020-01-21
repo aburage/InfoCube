@@ -4,20 +4,6 @@
     if (isset($_GET["username"]) && isset($_GET["passwd"])){
         $username = $_GET["username"];
         $passwd = $_GET["passwd"];
-        
-        $pdo = new PDO("sqlite:./SQL/infocube.sqlite");
-        $st = $pdo->prepare("select * from user where username='?'");
-        $st->execute(array($username));
-        $user_on_db = $st->fetch();
-        
-        if(!$user_on_db){
-            $result = "指定されたユーザが存在しません";
-        }else if($passwd == $_SESSION["passwd"]){
-            $_SESSION["user"] = "username";
-            $result = "ようこそ" . $username . "さん。ログインに成功しました。";
-        }else{
-            $result = "パスワードが違います。";
-        }
     }
 ?>
 
